@@ -32,8 +32,8 @@ class _DiceState extends State<Dice> {
     Random random1 = Random();
     Random random2 = Random();
     setState(() {
-      _diceCount1 = random1.nextInt(9) + 1;
-      _diceCount2 = random2.nextInt(9) + 1;
+      _diceCount1 = random1.nextInt(6) + 1;
+      _diceCount2 = random2.nextInt(6) + 1;
     });
   }
 
@@ -57,60 +57,18 @@ class _DiceState extends State<Dice> {
           crossAxisAlignment: WrapCrossAlignment.center,
           alignment: WrapAlignment.center,
           children: [
-            Container(
+            SizedBox(
               width: 145,
               height: 145,
-              padding: const EdgeInsets.all(5.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white, width: 10),
-              ),
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                runAlignment: WrapAlignment.center,
-                spacing: 5.0,
-                runSpacing: 5.0,
-                children: [
-                  for (var _ in List.filled(_diceCount1, 0, growable: false))
-                    SizedBox(
-                      width: 35.0,
-                      height: 35.0,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(100.0),
-                        ),
-                      ),
-                    ),
-                ],
+              child: Image(
+                image: AssetImage("assets/dice$_diceCount1.png"),
               ),
             ),
-            Container(
+            SizedBox(
               width: 145,
               height: 145,
-              padding: const EdgeInsets.all(5.0),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white, width: 10),
-              ),
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                runAlignment: WrapAlignment.center,
-                spacing: 5.0,
-                runSpacing: 5.0,
-                children: [
-                  for (var _ in List.filled(_diceCount2, 0, growable: false))
-                    SizedBox(
-                      width: 35.0,
-                      height: 35.0,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(100.0),
-                        ),
-                      ),
-                    ),
-                ],
+              child: Image(
+                image: AssetImage("assets/dice$_diceCount2.png"),
               ),
             ),
             ElevatedButton(
