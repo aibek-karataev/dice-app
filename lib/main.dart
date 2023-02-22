@@ -29,10 +29,11 @@ class _DiceState extends State<Dice> {
   int _diceCount2 = 1;
 
   void generateNumber() {
-    Random random = Random();
+    Random random1 = Random();
+    Random random2 = Random();
     setState(() {
-      _diceCount1 = random.nextInt(9) + 1;
-      _diceCount2 = random.nextInt(9) + 1;
+      _diceCount1 = random1.nextInt(9) + 1;
+      _diceCount2 = random2.nextInt(9) + 1;
     });
   }
 
